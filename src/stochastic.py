@@ -45,7 +45,7 @@ def run_gmm(X_train, X_test, y_train, y_test, n_components=2):
     train_clusters = model.predict(X_train)
     test_clusters = model.predict(X_test)
 
-    # 🔥 Correct mapping (using TRAIN only)
+    # Correct mapping (using TRAIN only)
     mapping = {}
 
     for i in range(n_components):

@@ -24,13 +24,13 @@ def get_h1(diagrams):
 # 3. Safe distance computation
 # =========================================
 def safe_distance(func, dgm1, dgm2):
-    # 🔥 إذا ما في loops
+    # if no loops in both diagrams, distance is zero
     if len(dgm1) == 0 and len(dgm2) == 0:
         return 0.0
 
-    # إذا واحد فاضي والثاني لا
+    # if one diagram has loops and the other doesn't, distance is infinite or undefined
     if len(dgm1) == 0 or len(dgm2) == 0:
-        return np.nan  # أو 0.0 حسب رغبتك
+        return np.nan  
 
     return func(dgm1, dgm2)
 
@@ -46,8 +46,7 @@ def compute_distances(X_clean, X_noisy):
     # Extract loops
     h1_clean = get_h1(dgms_clean)
     h1_noisy = get_h1(dgms_noisy)
-
-    # 🔥 Safe computation
+ # compute distances
     bottleneck_dist = safe_distance(bottleneck, h1_clean, h1_noisy)
     wasserstein_dist = safe_distance(wasserstein, h1_clean, h1_noisy)
 

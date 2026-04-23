@@ -38,7 +38,7 @@ def load_mnist_data(n_components=2, sample_size=1500, random_state=42):
     X_full = np.vstack((X_train, X_test))
     y_full = np.hstack((y_train, y_test))
 
-    # 🔥 Sampling
+    # Sampling to reduce size for PCA and visualization
     from sklearn.model_selection import train_test_split
     X_full, _, y_full, _ = train_test_split(
         X_full,
@@ -48,7 +48,7 @@ def load_mnist_data(n_components=2, sample_size=1500, random_state=42):
         random_state=random_state
     )
 
-    # Scaling
+    # Scaling 
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X_full)
 
@@ -77,13 +77,13 @@ def load_student_data():
 
     df = pd.read_csv("data/iris.csv", sep=";")
 
-    # 🎯 target
+    # target
     y = df["Target"].values
 
-    # تحويل النص إلى أرقام
+    # encoding target to binary
     y = (y != "Graduate").astype(int)  # Graduate vs Others
 
-    # 🔥 أهم خطوة: نختار 2 features فقط
+    # features selection
     X = df[["Admission grade", "Age at enrollment"]].values
 
     # Scaling

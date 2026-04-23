@@ -41,7 +41,7 @@ def generate_noisy_datasets(X, y, noise_levels=None, seeds=None):
             )
             noisy_versions.append(X_noisy)
 
-        # 🔥 الحل: نأخذ المتوسط (average)
+        # take the average of the noisy versions to create a single dataset for this noise level
         X_avg = np.mean(noisy_versions, axis=0)
 
         datasets[level] = {

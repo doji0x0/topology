@@ -69,10 +69,10 @@ def extract_metrics(diagrams):
     mean_persistence = float(np.mean(h1_vals)) if h1_count > 0 else 0.0
     total_persistence = float(np.sum(h1_vals)) if h1_count > 0 else 0.0
 
-    # 🔥 FIX: Normalized topological score
+    # Normalized topological score
     topological_score = total_persistence / (h1_count + 1e-8)
 
-    # 🔥 OPTIONAL: Stability measure
+    # Stability measure
     persistence_variance = float(np.var(h1_vals)) if h1_count > 0 else 0.0
 
     return {

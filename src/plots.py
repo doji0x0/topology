@@ -117,7 +117,7 @@ def plot_time(df, dataset):
 
 
 # =========================================
-# 🔥 6. Topological Distance (IMPORTANT)
+#  6. Topological Distance (IMPORTANT)
 # =========================================
 def plot_topology_distance(df, dataset):
     fig = plt.figure()
@@ -140,7 +140,7 @@ def plot_topology_distance(df, dataset):
 # Run all plots
 # =========================================
 if __name__ == "__main__":
-    dataset = "mnist"  # 🔥 غيريها إلى "student" "mnist" moons 
+    dataset = "mnist"  # "student" "mnist" "moons" shange to experiment with different datasets
 
     df = load_results(dataset)
 

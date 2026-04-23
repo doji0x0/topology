@@ -70,7 +70,7 @@ def evaluate(dataset="moons"):
             X_train_n, X_test_n, y_train_n, y_test_n
         )
 
-        # 🔥 FIXED (no data leakage)
+        # fixing data leakage issue by ensuring that the GMM is trained only on the training data
         gmm = run_gmm(
             X_train_n, X_test_n, y_train_n, y_test_n
         )
@@ -132,5 +132,5 @@ def evaluate(dataset="moons"):
 
 
 if __name__ == "__main__":
-    dataset = "mnist"   # غيريها إلى "moons" أو "student"  "mnist"
+    dataset = "mnist"   #  "moons" أو "student"  "mnist" cange this to evaluate different datasets
     evaluate(dataset)
